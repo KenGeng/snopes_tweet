@@ -5,7 +5,8 @@ echo 'run program start'
 
 iter=0	# iter
 keyword=""
-while [[ $iter -lt 5 ]]; do
+key_num=$((4)) # change this variable to set the number of words used to match
+while [[ $iter -lt $key_num ]]; do
 	
 	description_name=".["$iter"].description"
 	description=`cat $1 | jq $description_name`

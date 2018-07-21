@@ -5,7 +5,7 @@ iter=0	# iter
 count=0
 minsize=$((110))
 while [[ $iter -lt $1 ]]; do
-	filename="./CsvResult/"${iter}".csv"
+	filename="./backup_key_3_485pieces/CsvResult/"${iter}".csv"
 
 	echo $filename
 	if [ -f "$filename" ]; then
@@ -13,7 +13,13 @@ while [[ $iter -lt $1 ]]; do
 	    filesize=`ls -l $filename | awk '{ print $5 }'`
 	    if [ $filesize -gt $minsize ]; then
 		    count=$(($count+1))
-		    echo $filename >> "Meaningful.txt"
+		    if [ -f "./Meaningful.txt" -a $count -eq 1 ]; then
+		        echo $filename > "Meaningful.txt"
+		    else
+		        echo $filename >> "Meaningful.txt"
+
+		    fi
+
 	    fi
 
 		echo $iter
