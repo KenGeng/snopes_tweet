@@ -33,22 +33,3 @@ result_file=${result_file}".csv"
 echo ${result_file}
 python ../GetOldTweets/Exporter.py --querysearch "$keyword" --maxtweets 20 --since "2004-01-10" --output "$result_file"
 echo "Done."
-# nullvalue=`cat urls.json | jq .[10000000]`
-
-#  while [ "$img" != "$nullvalue" ]
-#  do
-# 	python ../GetOldTweets/Exporter.py --querysearch "accused russian spy mariia butina photographed oval office" --maxtweets 10 --since "2018-06-13" --output "./test2.csv"
-
-# 	echo $iter
-# 	iter=$(($iter+1))
-
-# 	img_name=".["$iter"]"
-# 	id_name=".["$iter"].id"
-# 	url_name=".["$iter"].image_url"
-
-# 	img=`cat urls.json | jq $img_name`
-# 	id=`cat urls.json | jq $id_name`
-# 	url0=`cat urls.json | jq $url_name`
-# 	len=${#url0}
-# 	url=${url0:1:len-2}
-# done
