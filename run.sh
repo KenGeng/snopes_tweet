@@ -31,7 +31,7 @@ echo ${result_file}
 result_file=${result_file}
 result_file=${result_file}".csv"
 echo ${result_file}
-python ../GetOldTweets/Exporter.py --querysearch "$keyword" --maxtweets 10 --since "2017-07-10" --output "$result_file"
+python ../GetOldTweets/Exporter.py --querysearch "$keyword" --maxtweets 20 --since "2004-01-10" --output "$result_file"
 echo "Done."
 # nullvalue=`cat urls.json | jq .[10000000]`
 

@@ -19,3 +19,8 @@ For a single run, I use the top 5 keywords in json which are collected by Google
 This is implemented in bash shell in `run.sh`
 
 For multiple run, I write `multi_run.sh` for convenience.
+
+# count
+If you want to count the meaningful data which has some relevant tweets, just run `count.sh 2000`
+You can view the result at `Meaningful.txt`.
+Up to now, only 159 pieces of news have some relevant tweets
