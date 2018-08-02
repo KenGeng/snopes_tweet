@@ -5,7 +5,7 @@ echo 'run program start'
 
 iter=0	# iter
 keyword=""
-key_num=$((4)) # change this variable to set the number of words used to match
+key_num=$((3)) # change this variable to set the number of words used to match
 while [[ $iter -lt $key_num ]]; do
 	
 	description_name=".["$iter"].description"
@@ -26,11 +26,15 @@ echo $result_file
 result_file=${result_file/$"JsonFile"/$""}
 len=${#result_file}
 
+if [ ! -d "./CsvResult" ];then
+mkdir "./CsvResult"
+fi
+
 result_file="./CsvResult/"${result_file:3:len-3}
 echo $keyword
 echo ${result_file}
 result_file=${result_file}
 result_file=${result_file}".csv"
 echo ${result_file}
-python ../GetOldTweets/Exporter.py --querysearch "$keyword" --maxtweets 20 --since "2004-01-10" --output "$result_file"
+python ./GetOldTweets/Exporter.py --querysearch "$keyword" --maxtweets 100 --since "2004-01-10" --output "$result_file"
 echo "Done."

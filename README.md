@@ -2,7 +2,8 @@
 use GetOldTweets to crawle tweets according to keywords extracted by Google Cloud API
 
 # usage
-run in commmand line:
+1. 
+2. run in commmand line:
 
 ```
 mutil_run.sh number
