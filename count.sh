@@ -4,9 +4,9 @@ echo 'count program start'
 iter=0	# iter
 count=0 # counter for files with corresponding csv files
 count2=0 # counter for files with more than 100 corresponding csv files
-minsize=$((110))
+minsize=$((119))
 while [[ $iter -lt $1 ]]; do
-	filename="./CsvResult2/"${iter}".csv"
+	filename="./CsvResult_true_last200/"${iter}".csv"
 
 	echo $filename
 	counter2=`grep -c "" $filename`
@@ -15,13 +15,13 @@ while [[ $iter -lt $1 ]]; do
 	    filesize=`ls -l $filename | awk '{ print $5 }'`
 	    if [ $filesize -gt $minsize ]; then
 		    count=$(($count+1))
-		    if [ -f "./CsvResult2/Meaningful.txt" -a $count -eq 1 ]; then
+		    if [ -f "./CsvResult_true_last200/Meaningful.txt" -a $count -eq 1 ]; then
 		        echo $filename > "Meaningful.txt"
 		    else
 		        echo $filename >> "Meaningful.txt"
 
 		    fi
-		    if [ -f "./CsvResult2/Meaningful_100.txt" -a $counter2 -lt 100 ]; then
+		    if [ -f "./CsvResult_true_last200/Meaningful_100.txt" -a $counter2 -lt 100 ]; then
 		        count2=$(($count2+1))
 		        echo $filename > "Meaningful_100.txt"
 		    else
@@ -30,6 +30,11 @@ while [[ $iter -lt $1 ]]; do
 		    fi
 
 	    fi
+	    if [ $filesize -eq $minsize ]; then
+		    rm $filename
+
+	    fi
+	    
 
 		echo $iter
 	fi
